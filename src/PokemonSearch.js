@@ -16,13 +16,14 @@ export default function PokemonSearch() {
     setIsLoading(true);
 
     // use fetch to make a request to your netlify pokemon function. Be sure to pass the pokemon name as a query param in the URL
-    const endpointURL = `https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${searchName}`;
+    // const endpointURL = `https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${searchName}`;
 
-    const response = await fetch(endpointURL);
-    // console.log(response);
+    const response = await fetch(`/.netlify/functions/pokemon?search=${searchName}`);
+    console.log('response', response.body);
 
     const json = await response.json();
-    // console.log(json.results);
+    console.log('json', json);
+    console.log('json.results', json.results);
 
     // put the jsonified data in state and set the loading state to false
     setPokemonArr(json.results);
@@ -47,7 +48,7 @@ export default function PokemonSearch() {
       {
         isLoading
           ? <Spinner/>
-          : <PokemonList pokemonArr={pokemonArr}/>
+          : <PokemonList pokemonArr={pokemonArr} />
       }
     </section>
   );
