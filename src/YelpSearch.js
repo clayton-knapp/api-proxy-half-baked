@@ -22,7 +22,7 @@ export default function YelpSearch() {
     // put the jsonified data in state and set the loading state to false
     const json = await response.json();
     // console.log(json);
-    console.log(json.businesses);
+    // console.log(json.businesses);
 
     setYelpResults(json.businesses); // does it need to be json.results?
 
@@ -40,6 +40,7 @@ export default function YelpSearch() {
         {/* add inputs/labels for city name, state, and country, using all the things we need with react forms. Don't forget to use the value property to sync these up with the default values in react state */}
         <input
           onChange={(e)=>setSearchLocation(e.target.value)}
+          placeholder='ex) portland or usa'
         ></input>
         <button>Search yelp</button>
       </form>
