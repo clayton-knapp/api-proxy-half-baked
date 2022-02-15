@@ -6,7 +6,7 @@ export default function PokemonSearch() {
   // you'll need to track your pokemon search results, the loading state, and one form field: name. For this form field, set a real initial values (like 'pikachu') so the form populates with a default value.
   const [pokemonArr, setPokemonArr] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [searchName, setSearchName] = useState('pikachu');
+  const [searchName, setSearchName] = useState('');
 
   
   async function handlePokemonSubmit(e) {
@@ -19,11 +19,11 @@ export default function PokemonSearch() {
     // const endpointURL = `https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${searchName}`;
 
     const response = await fetch(`/.netlify/functions/pokemon?search=${searchName}`);
-    console.log('response', response.body);
+    // console.log('response', response);
 
     const json = await response.json();
-    console.log('json', json);
-    console.log('json.results', json.results);
+    // console.log('json', json);
+    // console.log('json.results', json.results);
 
     // put the jsonified data in state and set the loading state to false
     setPokemonArr(json.results);

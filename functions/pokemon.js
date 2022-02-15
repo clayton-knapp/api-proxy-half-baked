@@ -8,10 +8,10 @@ exports.handler = async (e) => {
     // here is an example from the netlify docs:
     // https://functions.netlify.com/playground/#hello%2C-%7Bname%7D 
     const response = await fetch(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${e.queryStringParameters.search}`);
-    // console.log(response);
+    // console.log('RESPONSE LOGGED HERE', response);
 
     const json = await response.json();
-    // console.log(json);
+    // console.log('JSON LOGGED HERE', json);
     
     // consult the pokedex docs 
     // https://pokedex-alchemy.herokuapp.com/
