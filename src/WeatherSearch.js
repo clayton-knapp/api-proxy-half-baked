@@ -49,7 +49,7 @@ export default function WeatherSearch() {
         <input placeholder='ex) usa'
           onChange={(e)=> setCountry(e.target.value)}
         ></input>
-        <button>Get weather</button>
+        <button>Get forecast</button>
       </form>
       {/* Make a ForecastList component to import and use here. Use a ternery to display a loading spinner (make a <Spinner /> component for this) if the data is still loading. */}
       {

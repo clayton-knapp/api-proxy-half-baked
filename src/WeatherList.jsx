@@ -12,7 +12,6 @@ export default function WeatherList({ weatherResults }) {
 
   return (
     <div>
-      <h3>This Weeks Weather</h3>
       {
         weatherResults.map((eachDay, i) =>
           <div key={eachDay + i} className='weather-item'>
