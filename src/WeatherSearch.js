@@ -17,11 +17,16 @@ export default function WeatherSearch() {
     setIsLoading(true);
 
     // use fetch to make a request to your netlify weather function. Be sure to pass the location as a query param in the URL
-    const response = await fetch(`./netlify/functions/weather?city=${city}&state=${state}&country=${country}`);
+    // const response = await fetch(`/.netlify/functions/weather`);
+    const response = await fetch(`/.netlify/functions/weather?city=${city}&state=${state}&country=${country}`);
+    // console.log(response);
       
-    // put the jsonified data in state and 
+    // put the jsonified data in state
     const json = await response.json(); //DONT FORGET AWAIT HERE!
+    // console.log(json);
+
     setWeatherResults(json);
+    // console.log(weatherResults);
     
     //set the loading state to false
     setIsLoading(false);
