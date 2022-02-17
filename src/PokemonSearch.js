@@ -18,8 +18,10 @@ export default function PokemonSearch() {
     // use fetch to make a request to your netlify pokemon function. Be sure to pass the pokemon name as a query param in the URL
     // const endpointURL = `https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${searchName}`;
 
-    const response = await fetch(`/.netlify/functions/pokemon?search=${searchName}`);
+    //added http://localhost:8888 to get test to work
+    const response = await fetch(`http://localhost:8888/.netlify/functions/pokemon?search=${searchName}`);
     // console.log('response', response);
+
 
     const json = await response.json();
     // console.log('json', json);
@@ -45,6 +47,7 @@ export default function PokemonSearch() {
         <button>Get pokemon</button>
       </form>
       {/* Make a PokemonList component to import and use here. Use a ternery to display a loading spinner (make a <Spinner /> component for this) if the data is still loading. */}
+      {/* <PokemonList pokemonArr={pokemonArr} /> */}
       {
         isLoading
           ? <Spinner/>

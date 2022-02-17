@@ -1,6 +1,13 @@
 const fetch = require('node-fetch');
 
-// require('dotenv').config();
+require('dotenv').config();
+
+// this tells chrome to ignore CORS
+const headers = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+};
 
 exports.handler = async (e) => {
   try {
@@ -18,6 +25,8 @@ exports.handler = async (e) => {
 
     return { 
       statusCode: 200, 
+      //added headers here to ignore CORS
+      headers,
     // this is where you shoot data back to the user. right now it's sending an empty object--replace this with the pokemon data. remember, you do need to stringify it, otherwise netlify gets mad. ¯\_(ツ)_/¯
       body: JSON.stringify(json),
     };
