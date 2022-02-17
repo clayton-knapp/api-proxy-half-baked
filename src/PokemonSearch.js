@@ -48,7 +48,7 @@ export default function PokemonSearch() {
       {
         isLoading
           ? <Spinner/>
-          : <PokemonList pokemonArr={pokemonArr} />
+          : <PokemonList title='pokemon-list' pokemonArr={pokemonArr} />
       }
     </section>
   );
